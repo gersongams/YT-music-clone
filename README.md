@@ -49,7 +49,7 @@ Go to the http://localhost:3000 and test the app
 
 ## Demo
 
-There is a demo for this application running in [https://news-evaluator-nlp.herokuapp.com/](https://news-evaluator-nlp.herokuapp.com/)
+There is a demo for this application running in [https://yt-music-clone.netlify.app/](https://yt-music-clone.netlify.app/)
 
 ## Authors
 
