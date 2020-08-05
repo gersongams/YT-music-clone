@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "typeface-roboto";
+import { ThemeProvider } from "styled-components";
+import { theme } from "./style/theme";
+import { GlobalStyle } from "./style/globalStyle";
+import AppRouter from "./router";
+import PlayerContext from "./lib/context";
+import { SoundPlayer } from "./lib/howler";
+import { createMuiTheme } from "@material-ui/core/styles";
+import { ThemeProvider as MaterialThemeProvider } from "@material-ui/styles";
 
-function App() {
+const materialTheme = createMuiTheme({
+  palette: {
+    type: "dark",
+  },
+});
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MaterialThemeProvider theme={materialTheme}>
+      <ThemeProvider theme={theme}>
+        <PlayerContext.Provider value={new SoundPlayer()}>
+          <AppRouter />
+          <GlobalStyle />
+        </PlayerContext.Provider>
+      </ThemeProvider>
+    </MaterialThemeProvider>
   );
-}
+};
 
 export default App;
